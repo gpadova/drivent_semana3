@@ -12,7 +12,6 @@ export async function cleanDb() {
   await prisma.enrollment.deleteMany({});
   await prisma.event.deleteMany({});
   await prisma.session.deleteMany({});
-  await prisma.user.deleteMany({});
   await prisma.ticketType.deleteMany({});
 }
 

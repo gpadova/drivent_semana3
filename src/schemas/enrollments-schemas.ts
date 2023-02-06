@@ -6,7 +6,7 @@ const cpfValidationSchema = Joi.string().length(11).custom(joiCpfValidation).req
 
 const cepValidationSchema = Joi.string().length(9).custom(JoiCepValidation).required();
 
-const mobilePhoneValidationSchema = Joi.string().min(14).max(15).custom(joiMobilePhoneValidation).required();
+const mobilePhoneValidationSchema = Joi.string().min(10).max(15).custom(joiMobilePhoneValidation).required();
 
 export const createEnrollmentSchema = Joi.object<CreateOrUpdateEnrollmentWithAddress>({
   name: Joi.string().min(3).required(),
@@ -24,7 +24,7 @@ export const createEnrollmentSchema = Joi.object<CreateOrUpdateEnrollmentWithAdd
       .required(),
     neighborhood: Joi.string().required(),
     addressDetail: Joi.string().allow(null, ""),
-  }).required(),
+  }).required(), 
 });
 
 function joiCpfValidation(value: string, helpers: Joi.CustomHelpers<string>) {
